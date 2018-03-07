@@ -21,19 +21,26 @@ import org.springframework.http.ResponseEntity;
 import com.company.linebot.domain.Product;
 import com.company.linebot.domain.repository.ProductRepository;
 import com.company.linebot.dto.ProductDto;
+import com.company.linebot.service.ProductService;
 
 @RestController
 @RequestMapping("products")
 public class ProductController {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
     public List<Product> list() {
-        return productRepository.getAllProducts();
+        return productService.getAllProducts();
     }
+
+    @RequestMapping(value="/xxx/{category}", method = RequestMethod.GET)
+    public List<Product> getProductsByCategory(@PathVariable("category") String category) {
+        System.out.println("===================");
+        return productService.getProductsByCategory(category);
+    }
+
 
             /*
     @RequestMapping(method = RequestMethod.POST)
