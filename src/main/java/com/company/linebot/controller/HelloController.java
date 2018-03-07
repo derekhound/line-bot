@@ -1,7 +1,9 @@
 package com.company.linebot.controller;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -17,16 +19,27 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 import com.company.linebot.domain.Product;
+import com.company.linebot.domain.repository.ProductRepository;
 import com.company.linebot.dto.ProductDto;
 
 @RestController
-@RequestMapping("rest/product")
+@RequestMapping("rest/products")
 public class HelloController {
 
+    @Autowired
+    private ProductRepository productRepository;
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public List<Product> list() {
+        return productRepository.getAllProducts();
+    }
+
+            /*
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody ProductDto productDto) {
-    }
+    }*/
 
     @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)

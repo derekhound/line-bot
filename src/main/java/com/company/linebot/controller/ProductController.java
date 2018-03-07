@@ -2,6 +2,7 @@ package com.company.linebot.controller;
 
 import java.math.BigDecimal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.company.linebot.domain.Product;
+import com.company.linebot.domain.repository.ProductRepository;
 
 @Controller
 public class ProductController {
+
+
     @RequestMapping("/products")
     public String list(Model model) {
         Product iphone = new Product("P1234", "iPhone 6s", new BigDecimal(500));
