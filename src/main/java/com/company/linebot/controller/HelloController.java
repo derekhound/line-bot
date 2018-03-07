@@ -17,13 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 
 import com.company.linebot.domain.Product;
+import com.company.linebot.dto.ProductDto;
 
-@Controller
+@RestController
 @RequestMapping("rest/product")
 public class HelloController {
 
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody ProductDto productDto) {
+    }
+
     @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
-    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public Product read(@PathVariable("productId") String productId) {
         Product iphone =  new Product("P1234", productId, new BigDecimal(500));
         return iphone;
