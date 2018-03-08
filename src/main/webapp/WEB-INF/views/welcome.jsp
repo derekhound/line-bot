@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
@@ -14,6 +15,13 @@
 </head>
 
 <body>
+
+<section>
+  <div class="pull-right" style="padding-right: 50px">
+    <a href="?language=en_US">English</a> | <a href="?language=zh_TW">Chinese</a>
+  </div>
+</section>
+
 <div class="jumbotron">
   <h1> ${greeting} </h1>
   <p> ${tagline} </p>
