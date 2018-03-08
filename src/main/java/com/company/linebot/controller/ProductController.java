@@ -37,7 +37,6 @@ public class ProductController {
 
     @RequestMapping(value="/xxx/{category}", method = RequestMethod.GET)
     public List<Product> getProductsByCategory(@PathVariable("category") String category) {
-        System.out.println("===================");
         return productService.getProductsByCategory(category);
     }
 

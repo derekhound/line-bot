@@ -10,4 +10,6 @@ public interface ProductRepository {
     List<Product> getProductsByCategory(String category);
 
     //void updateStock(String productId, long noOfUnit);
+
+    Product read(String id);
 }

@@ -36,6 +36,13 @@ public class InMemoryProductRepository implements ProductRepository {
         return jdbcTemplate.query(SQL, params, new ProductMapper());
     }
 
+    public Product read(String id) {
+        String SQL = "SELECT * FROM PRODUCTS WHERE ID = :id";
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("id", id);
+        return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
+    }
+
     /*
     //@Override
     public void updateStock(String productId, long noOfUnit) {
