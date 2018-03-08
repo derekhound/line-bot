@@ -30,22 +30,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public List<Product> list() {
-        return productService.getAllProducts();
+        return productService.list();
     }
-
-    @RequestMapping(value="/xxx/{category}", method = RequestMethod.GET)
-    public List<Product> getProductsByCategory(@PathVariable("category") String category) {
-        return productService.getProductsByCategory(category);
-    }
-
-
-            /*
-    @RequestMapping(method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody ProductDto productDto) {
-    }*/
 
     @RequestMapping(value = "/{productId}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)

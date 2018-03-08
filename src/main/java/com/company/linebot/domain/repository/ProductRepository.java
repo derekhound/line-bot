@@ -5,11 +5,7 @@ import com.company.linebot.domain.Product;
 
 public interface ProductRepository {
 
-    List<Product> getAllProducts();
-
-    List<Product> getProductsByCategory(String category);
-
-    //void updateStock(String productId, long noOfUnit);
+    List<Product> list();
 
     Product read(String id);
 }

@@ -23,16 +23,9 @@ public class InMemoryProductRepository implements ProductRepository {
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
-    public List<Product> getAllProducts() {
+    public List<Product> list() {
         String SQL = "SELECT * FROM PRODUCTS";
         Map<String, Object> params = new HashMap<String, Object>();
-        return jdbcTemplate.query(SQL, params, new ProductMapper());
-    }
-
-    public List<Product> getProductsByCategory(String category) {
-        String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY = :category";
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("category", category);
         return jdbcTemplate.query(SQL, params, new ProductMapper());
     }
 
@@ -42,16 +35,6 @@ public class InMemoryProductRepository implements ProductRepository {
         params.put("id", id);
         return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
     }
-
-    /*
-    //@Override
-    public void updateStock(String productId, long noOfUnit) {
-        String SQL = "UPDATE PRODUCTS SET UNITS_IN_STOCK = :unitsInStock WHERE ID = :id";
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("unitsInStock", noOfUnit);
-        params.put("id", productId);
-        jdbcTemplate.update(SQL, params);
-    }*/
 
     private static final class ProductMapper implements RowMapper<Product> {
         public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
