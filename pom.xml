@@ -19,6 +19,10 @@
     <junit.version>4.12</junit.version>
     <spring-test.version>4.3.0.RELEASE</spring-test.version>
     <line-bot.version>1.7.0</line-bot.version>
+    <retrofit.version>2.3.0</retrofit.version>
+    <converter-gson.version>2.3.0</converter-gson.version>
+    <converter-jackson.version>1.9.0</converter-jackson.version>
+    <logging-interceptor.version>3.9.0</logging-interceptor.version>
   </properties>
 
   <dependencies>
@@ -66,6 +70,26 @@
       <groupId>com.linecorp.bot</groupId>
       <artifactId>line-bot-spring-boot</artifactId>
       <version>${line-bot.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>${retrofit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-gson</artifactId>
+      <version>${converter-gson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit</groupId>
+      <artifactId>converter-jackson</artifactId>
+      <version>${converter-jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${logging-interceptor.version}</version>
     </dependency>
   </dependencies>
 </project>
