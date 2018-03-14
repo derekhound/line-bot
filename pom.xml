@@ -18,6 +18,7 @@
     <hsqldb.version>2.3.2</hsqldb.version>
     <junit.version>4.12</junit.version>
     <spring-test.version>4.3.0.RELEASE</spring-test.version>
+    <line-bot.version>1.7.0</line-bot.version>
   </properties>
 
   <dependencies>
@@ -60,6 +61,11 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring-test.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.linecorp.bot</groupId>
+      <artifactId>line-bot-spring-boot</artifactId>
+      <version>${line-bot.version}</version>
     </dependency>
   </dependencies>
 </project>
